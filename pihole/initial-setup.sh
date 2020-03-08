@@ -17,14 +17,12 @@ read -p "Virtual host [optional]:" -e VIRTUAL_HOST
 
 # Set configuration variables
 cp pihole.env .env
-cp docker-compose-orig.yml docker-compose.yml
 
 sed -i -e "s/#TIMEZONE#/${TIMEZONE:-Europe\/Amsterdam}/g" .env
 sed -i -e "s/#DNS1#/${DNS1:-1.1.1.1}/g" .env
 sed -i -e "s/#DNS2#/${DNS2:-1.0.0.1}/g" .env
 sed -i -e "s/#DNSSEC#/${DNSSEC:-True}/g" .env
 sed -i -e "s/#VIRTUAL_HOST#/${DNSSEC:-True}/g" .env
-sed -i -e "s/#SERVER_IP#/${SERVER_IP:-''}:/g" docker-compose.yml
 sed -i -e "s/#SERVER_IP#/${SERVER_IP:-''}:/g" .env
 
 
