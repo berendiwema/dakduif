@@ -10,6 +10,13 @@ services:
       - "#SERVER_IP#443:443/tcp"
     env_file:
       - pihole.env
+    environment: 
+      TZ: '${TIMEZONE}'
+      DNS1: ${DNS1}
+      DNS2: ${DNS2}
+      DNSSEC: ${DNSSEC}
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+
     volumes:
       - '/srv/pihole/etc-pihole/:/etc/pihole/'
       - '/srv/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
