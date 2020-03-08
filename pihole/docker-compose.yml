@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "[[SERVER_IP]]53:53/tcp"
+      - "[[SERVER_IP]]53:53/udp"
+      - "[[SERVER_IP]]443:443/tcp"
+    env_file:
+      - pihole.env
+    volumes:
+      - '/srv/pihole/etc-pihole/:/etc/pihole/'
+      - '/srv/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    restart: unless-stopped

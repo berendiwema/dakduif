@@ -13,6 +13,8 @@ ______  ___   _   _______ _   _ ___________
 
 "
 echo "[$(date)] INFO: Setting up Dakduif server"
+mkdir -p /srv/
+
 echo "[$(date)] INFO: Executing package upgrade"
 apt-get update && apt-get upgrade
 # Disable IPv6; current ISP doesn't support it yet.
