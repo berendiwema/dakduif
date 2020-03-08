@@ -16,13 +16,13 @@ read -p "IP to listen on [0.0.0.0]:" -e SERVER_IP
 read -p "Virtual host [optional]:" -e VIRTUAL_HOST
 
 # Set configuration variables
-cp pihole-orig.env pihole.env
+cp pihole.env .env
 
-sed -i -e "s/#TIMEZONE#/${TIMEZONE:-Europe\/Amsterdam}/g" pihole.env
-sed -i -e "s/#DNS1#/${DNS1:-1.1.1.1}/g" pihole.env
-sed -i -e "s/#DNS2#/${DNS2:-1.0.0.1}/g" pihole.env
-sed -i -e "s/#DNSSEC#/${DNSSEC:-True}/g" pihole.env
-sed -i -e "s/#VIRTUAL_HOST#/${DNSSEC:-True}/g" pihole.env
+sed -i -e "s/#TIMEZONE#/${TIMEZONE:-Europe\/Amsterdam}/g" .env
+sed -i -e "s/#DNS1#/${DNS1:-1.1.1.1}/g" .env
+sed -i -e "s/#DNS2#/${DNS2:-1.0.0.1}/g" .env
+sed -i -e "s/#DNSSEC#/${DNSSEC:-True}/g" .env
+sed -i -e "s/#VIRTUAL_HOST#/${DNSSEC:-True}/g" .env
 sed -i -e "s/#SERVER_IP#/${SERVER_IP:-''}:/g" docker-compose.yml
 
 
