@@ -5,9 +5,9 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     ports:
-      - "[[SERVER_IP]]53:53/tcp"
-      - "[[SERVER_IP]]53:53/udp"
-      - "[[SERVER_IP]]443:443/tcp"
+      - "#SERVER_IP#53:53/tcp"
+      - "#SERVER_IP#53:53/udp"
+      - "#SERVER_IP#443:443/tcp"
     env_file:
       - pihole.env
     volumes:
